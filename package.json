@@ -1,0 +1,9 @@
+{
+  "name": "splist-client",
+  "version": "0.0.0",
+  "main": "todo",
+  "repository": "https://github.com/Splist/splist-client.git",
+  "author": "James <jdenderplays@gmail.com>",
+  "license": "APGL-3.0",
+  "private": true
+}
