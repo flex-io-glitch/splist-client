@@ -10,3 +10,9 @@ yarn parcel serve src/index.html --port 8080
 rm -r dist
 rm -r .cache
 ```
+
+## lint
+
+```bash
+yarn tslint --project .
+```
