@@ -1,3 +1,11 @@
+## setup
+
+Use after a fresh splist-meta setup to set up a development environment.
+
+```bash
+yarn
+```
+
 ## serve
 
 Start a parcel dev server on port 8080.
