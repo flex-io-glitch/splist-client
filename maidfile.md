@@ -1,18 +1,33 @@
 ## serve
 
+Start a parcel dev server on port 8080.
+
 ```bash
 yarn parcel serve src/index.html --port 8080
 ```
 
-## clean
+## lint
+
+Uses TSLint to ensure code quality.
+
+```bash
+yarn tslint --project .
+```
+
+## clean:parcel
+
+Removes all parcel generated files/folders. Only used when needed.
 
 ```bash
 rm -r dist
 rm -r .cache
 ```
 
-## lint
+## clean:yarn
+
+Removes all yarn generated files/folders. Only used when needed.
 
 ```bash
-yarn tslint --project .
+rm yarn-error.log
+rm -rf node_modules
 ```
