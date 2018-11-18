@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Text Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="template">
+    <div class="main">
+        <p v-for="msg in messages">{{msg}}</p>
+    </div>
+        
+    <div class="footer">
+        <textarea>wew</textarea>
+    </div>
+
+    <div class="header">
+        Splist Design Prototype => Text Channels
+    </div>
+
+    <div class="left"></div>
+
+    <div class="right"></div>
+</div>
+
+<script>
+window.vm = new Vue({
+    el: '#template',
+    data: {
+        messages: Array.from({ length: 20 }).map((_, i) => i+''),
+    },
+});
+</script>
+
+<style>
+body {
+    margin: 0;
+}
+
+#template {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu   main   main   main   main   right'
+        'menu   footer footer footer footer right';
+  
+    /* Make sure the grid *always* fits the screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#template > div {
+    text-align: center;
+    font-size: 30px;
+}
+
+.main {
+    grid-area: main;
+    overflow-y: scroll;
+    background-color: #323e4f;
+}
+
+.left { grid-area: menu; }
+.right { grid-area: right; }
+
+.left, .right {
+    background-color: #283243;
+}
+
+.header { grid-area: header; }
+.footer { grid-area: footer; }
+
+.header, .footer {
+    background-color: #1c2532;
+}
+</style>
+
+</body>
+</html>
