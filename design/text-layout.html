@@ -14,16 +14,24 @@
     </div>
         
     <div class="footer">
-        <textarea>wew</textarea>
+        <textarea class="messageForm">wew</textarea>
     </div>
 
     <div class="header">
         Splist Design Prototype => Text Channels
     </div>
 
-    <div class="left"></div>
+    <div class="left">
+        <ul class="list">
+            <li v-for="chan in channels">#{{chan}}</li>
+        </ul>
+    </div>
 
-    <div class="right"></div>
+    <div class="right">
+        <ul class="list">
+            <li v-for="mem in members">@{{mem}}</li>
+        </ul>
+    </div>
 </div>
 
 <script>
@@ -31,6 +39,17 @@ window.vm = new Vue({
     el: '#template',
     data: {
         messages: Array.from({ length: 20 }).map((_, i) => i+''),
+        channels: [
+            'news',
+            'genral',
+            'bots',
+            'settings',
+        ],
+        members: [
+            'Wewman',
+            'Foo123',
+            'XxBarxX',
+        ],
     },
 });
 </script>
@@ -43,9 +62,10 @@ body {
 #template {
     display: grid;
     grid-template-areas:
-        'header header header header header header'
-        'menu   main   main   main   main   right'
-        'menu   footer footer footer footer right';
+        'header header header'
+        'left   main   right'
+        'left   footer right';
+    grid-template-columns: 20% 60% 20%;
   
     /* Make sure the grid *always* fits the screen */
     position: fixed;
@@ -57,20 +77,26 @@ body {
 
 #template > div {
     text-align: center;
-    font-size: 30px;
+    color: white;
 }
 
 .main {
     grid-area: main;
-    overflow-y: scroll;
+    
     background-color: #323e4f;
+    overflow-y: scroll;
 }
 
-.left { grid-area: menu; }
+.left { grid-area: left; }
 .right { grid-area: right; }
 
 .left, .right {
     background-color: #283243;
+}
+    
+.list {
+    padding: 0;
+    list-style-type: none;
 }
 
 .header { grid-area: header; }
@@ -78,6 +104,12 @@ body {
 
 .header, .footer {
     background-color: #1c2532;
+}
+    
+.messageForm {
+    background: transparent;
+    color: white;
+    resize: none;
 }
 </style>
 
